@@ -1,9 +1,15 @@
 <form class="fancy-search" ng-class="isActive ? 'active' : ''">
+  query: {{ search.query }}
+  <hr>
+  postfix: {{ search.postfix }}
+  <!-- <hr> -->
+  <!-- hint: {{ hints | filter: search.query | limitTo: 1}} -->
+  <br><br><br>
   <div class="input-group">
     <div class="currentHint">
-      <span>{{ search.query }}</span>{{ hint }}
+      <span>{{ search.query }}</span>{{ search.postfix }}
     </div>
-    <input ng-focus="isActive = true" ng-blur="isActive = false" ng-model="search.query" class="input" type="text" />
+    <input ng-focus="isActive = true" ng-blur="isActive = false" ng-model="search.query" ng-change="updateQuery()" class="input" type="text" />
     <input class="button" type="submit" value="Go!" />
     <ul class="hints">
       <li ng-repeat="hint in hints | filter: search.query | limitTo: 3">{{ hint }}</li>
