@@ -6,3 +6,6 @@ Creating search-bar input form with hinting. Hints should be first three matchin
 
 ## Startup
 This project assumes three branches. Implementation in anglular 1.5.8, jQuery solution and vanilla.js.
+
+## Demo
+[link https://zniszcz.github.io/fancy-search/] https://zniszcz.github.io/fancy-search/
