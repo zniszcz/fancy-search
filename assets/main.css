@@ -1,0 +1,69 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,800&subset=latin-ext';
+
+body, html {
+  margin: 0;
+  width: 100%;
+  height: 0;
+  padding: 0;
+}
+body {
+  background: #2ecc71;
+  color: #fff;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 10vh auto;
+}
+h1 {
+  margin: 0;
+}
+h3 {
+  font-weight: 300;
+  margin: 3px 0 15px;
+}
+.fancy-search .input-group {
+  position: relative;
+  width: 100%;
+}
+.fancy-search .input,
+.fancy-search .button {
+  display: inline-block;
+  float: left;
+  box-shadow: none;
+  box-sizing: border-box;
+  height: 46px;
+  z-index: 10;
+  position: relative;
+}
+.fancy-search .button {
+  width: 46px;
+  border: 1px solid #2c3e50;
+  background: #2c3e50;
+  color: #fff;
+  font: 800 15px 'Open Sans', Arial, sans-serif;
+}
+.fancy-search .input {
+  width: calc(100% - 46px);
+  border: 1px solid #ecf0f1;
+  background: #ecf0f1;
+  color: #222;
+  font: 800 12px 'Open Sans', Arial, sans-serif;
+  outline-color: #2c3e50;
+  padding: 10px 15px;
+}
+.fancy-search ul.hints {
+  padding: 10px 15px;
+  margin: 0;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  background: #fff;
+  box-sizing: border-box;
+  color: #222;
+  list-style: none;
+  z-index: 1;
+}
