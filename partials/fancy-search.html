@@ -12,7 +12,7 @@
     <input ng-focus="isActive = true" ng-blur="isActive = false" ng-model="search.query" ng-change="updateQuery()" class="input" type="text" />
     <input class="button" type="submit" value="Go!" />
     <ul class="hints">
-      <li ng-repeat="hint in hints | filter: search.query | limitTo: 3">{{ hint }}</li>
+      <li ng-repeat="hint in hints | filter: search.query | limitTo: 3" ng-click="choose(hint);">{{ hint }}</li>
     </ul>
   </div>
 </form>
