@@ -13,13 +13,13 @@
         $scope.search.postfix = "";
         $scope.search.hint = "";
 
-        $scope.hints = ["Hint AAA", "Hint AAB", "Hint AAC", "Hint AA", "Hint CCC", "Hint CCA", "Hint CCB"];
+        $scope.hints = ["AAA", "AAB", "AAC", "ABA", "CCC", "CCA", "CCB"]; // TODO: sort data at start;
         $scope.isActive = false;
         $scope.updateQuery = function () {
               for (var i in $scope.hints) {
                 if($scope.hints[i].toUpperCase().lastIndexOf($scope.search.query.toUpperCase(), 0) === 0)
                   return $scope.search.hint = $scope.hints[i];
-              } return "";
+              } return $scope.search.hint = "";
             };
 
         $scope.$watch('search.query', function (newVal, oldVal) {
