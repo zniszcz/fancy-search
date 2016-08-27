@@ -23,6 +23,14 @@ body {
 h1 {
   margin: 0;
 }
+h1:before {
+  content: "# ";
+  color: rgba(255,255,255,0.7);
+  transition: .5s all ease-in;
+}
+h1:hover:before {
+  color: rgba(255,255,255,1);
+}
 h3 {
   font-weight: 300;
   margin: 0 0 25px;
@@ -48,7 +56,7 @@ h3 {
 .fancy-search .input-group {
   position: relative;
   width: 100%;
-  transition: .5s all;
+  transition: .5s all ease-in;
 }
 .fancy-search.active .input-group{
   box-shadow: 0 0 10px rgba(0,0,0,0.8);
@@ -66,13 +74,19 @@ h3 {
   outline: none;
 }
 .fancy-search .button {
-  width: 46px;
+  width: 80px;
   background: #2c3e50;
   color: #fff;
   font: 800 15px 'Open Sans', Arial, sans-serif;
+  transition: .3s all ease-in;
+}
+.fancy-search .button:hover {
+  background: #34495e;
+  color: #ecf0f1;
+  box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;
 }
 .fancy-search .input {
-  width: calc(100% - 46px);
+  width: calc(100% - 80px);
   background: transparent;
   color: transparent;
   padding: 10px 15px;
@@ -110,7 +124,7 @@ h3 {
   list-style: none;
   z-index: 1;
   overflow: hidden;
-  transition: .5s all;
+  transition: .5s all ease-in;
   max-height: 0px;
 }
 .fancy-search.active ul.hints {
@@ -119,7 +133,7 @@ h3 {
 }
 .fancy-search ul.hints li{
   padding: 10px 15px;
-  transition: .5s all;
+  transition: .5s all ease-in;
 }
 .fancy-search ul.hints li:first-of-type{
   padding-top: 15px;
@@ -130,4 +144,22 @@ h3 {
 .fancy-search ul.hints li:hover{
   background: #333;
   color: #eee;
+}
+
+/* - Need stand-alone declaration - */
+.fancy-search ::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+.fancy-search ::-moz-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+.fancy-search :-ms-input-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+.fancy-search :-moz-placeholder {
+  font-style: italic;
+  font-weight: 300;
 }

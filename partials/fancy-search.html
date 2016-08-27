@@ -9,7 +9,7 @@
     <div class="currentHint">
       <span>{{ search.query }}</span>{{ search.postfix }}
     </div>
-    <input ng-focus="isActive = true" ng-blur="isActive = false" ng-model="search.query" ng-change="updateQuery()" class="input" type="text" />
+    <input ng-focus="isActive = true" ng-blur="isActive = false" ng-model="search.query" ng-change="updateQuery()" class="input" type="text" placeholder="Search ..."/>
     <input class="button" type="submit" value="Go!" />
     <ul class="hints">
       <li ng-repeat="hint in hints | filter: search.query | limitTo: 3" ng-click="choose(hint);">{{ hint }}</li>

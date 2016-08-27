@@ -13,7 +13,8 @@
         $scope.search = {
           query: "",
           postfix: "",
-          hint: ""
+          hint: "",
+          activeHint: 0
         };
 
         $scope.updateQuery = function () {
@@ -27,7 +28,8 @@
             return $scope.search = {
                   query: value,
                   postfix: "",
-                  hint: value
+                  hint: value,
+                  activeHint: 0
             };
         }
 
@@ -44,6 +46,18 @@
               $scope.updateQuery();
               $scope.choose($scope.search.hint);
             }
+            // else if (keyCode === 38) { // UP
+            //   if(!$scope.search.activeHint)
+            //     $scope.search.activeHint = 3;
+            //   else
+            //     $scope.search.activeHint--;
+            //
+            // } else if (keyCode === 40) { // DOWN
+            //   if($scope.search.activeHint == 3)
+            //     $scope.search.activeHint = 0;
+            //   else
+            //     $scope.search.activeHint++;
+            // }
         });
 
         // return console.log(scope)
