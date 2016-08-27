@@ -1,9 +1,12 @@
-<form class="fancy-search">
+<form class="fancy-search" ng-class="isActive ? 'active' : ''">
   <div class="input-group">
-    <input class="input" type="text" />
+    <div class="currentHint">
+      <span>{{ search.query }}</span>{{ hint }}
+    </div>
+    <input ng-focus="isActive = true" ng-blur="isActive = false" ng-model="search.query" class="input" type="text" />
     <input class="button" type="submit" value="Go!" />
     <ul class="hints">
-      <li ng-repeat="hint in hints">{{ hint }}</li>
+      <li ng-repeat="hint in hints | filter: search.query | limitTo: 3">{{ hint }}</li>
     </ul>
   </div>
 </form>

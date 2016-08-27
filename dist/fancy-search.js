@@ -6,7 +6,10 @@
       restrict: 'E',
       scope: true,
       link: function (scope) {
-        scope.hints = ["Hint A", "Hint B", "Hint C"];
+        scope.search = {};
+        scope.hints = ["Hint AAA", "Hint AAB", "Hint AAC", "Hint AA", "Hint CCC", "Hint CCA", "Hint CCB"];
+        scope.isActive = false;
+        scope.hint = "test"+scope.search.query;
 
         // return console.log("")
       },

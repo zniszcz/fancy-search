@@ -26,6 +26,10 @@ h3 {
 .fancy-search .input-group {
   position: relative;
   width: 100%;
+  transition: .5s all;
+}
+.fancy-search.active .input-group{
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 .fancy-search .input,
 .fancy-search .button {
@@ -36,25 +40,42 @@ h3 {
   height: 46px;
   z-index: 10;
   position: relative;
+  border: 0;
+  outline: none;
 }
 .fancy-search .button {
   width: 46px;
-  border: 1px solid #2c3e50;
   background: #2c3e50;
   color: #fff;
   font: 800 15px 'Open Sans', Arial, sans-serif;
 }
 .fancy-search .input {
   width: calc(100% - 46px);
-  border: 1px solid #ecf0f1;
-  background: #ecf0f1;
-  color: #222;
-  font: 800 12px 'Open Sans', Arial, sans-serif;
-  outline-color: #2c3e50;
+  background: transparent;
+  color: transparent;
   padding: 10px 15px;
+  position: relative;
+  font: 800 20px 'Open Sans', Arial, sans-serif;
+}
+.fancy-search .currentHint {
+  padding: 10px 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 46px;
+  box-sizing: border-box;
+  z-index: 9;
+  color: #bbb;
+  width: calc(100% - 46px);
+  font: 300 20px 'Open Sans', Arial, sans-serif;
+  background: #ecf0f1;
+}
+.fancy-search .currentHint span{
+  color: #222;
+  font-weight: 800;
 }
 .fancy-search ul.hints {
-  padding: 10px 15px;
+  padding: 0;
   margin: 0;
   width: 100%;
   display: block;
@@ -66,4 +87,25 @@ h3 {
   color: #222;
   list-style: none;
   z-index: 1;
+  overflow: hidden;
+  transition: .5s all;
+  max-height: 0px;
+}
+.fancy-search.active ul.hints {
+  height: auto;
+  max-height: 135px;
+}
+.fancy-search ul.hints li{
+  padding: 10px 15px;
+  transition: .5s all;
+}
+.fancy-search ul.hints li:first-of-type{
+  padding-top: 15px;
+}
+.fancy-search ul.hints li:last-of-type{
+  padding-bottom: 15px;
+}
+.fancy-search ul.hints li:hover{
+  background: #333;
+  color: #eee;
 }
