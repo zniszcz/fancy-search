@@ -44,10 +44,25 @@
                 .on('input', function () {
                   var val = $(this).val(),
                       firstHint = getFirstHint(val),
-                      postfix = (firstHint && val) ? firstHint.substr(val.length) : "";
+                      postfix = (firstHint && val) ? firstHint.substr(val.length) : "",
+                      hints = filtreHints(val),
+                      bufferHint = "";
 
                   search.query.html(val);
                   search.hint.html(postfix);
+
+                  for(var hint in hints)
+                    bufferHint += "<li>"+hints[hint]+"</li>"
+
+                  hintsList.html(bufferHint);
+                  hintsList.find('li').click( function () {
+                      var val = $(this).html();
+
+                      search.query.html(val);
+                      search.hint.html("");
+                      input.val(val);
+                  });
+
 
                   $(this).keydown( function (e) {
                       var code = e.keyCode || e.which,
@@ -74,8 +89,11 @@
           return filtred[0];
         }
 
-        function filtreHints () {
-
+        function filtreHints (val) {
+          var filtred = $.grep(hints, function (phrase) {
+              return phrase.toUpperCase().search(val.toUpperCase()) >= 0;
+          })
+          return filtred.slice(config.hintNumbers).sort();
         }
   }
 
