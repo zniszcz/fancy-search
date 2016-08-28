@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="fancySearchSample">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -8,8 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="assets/main.css">
+        <link rel="stylesheet" href="dist/jquery.fancy-search.css">
     </head>
-    <body ng-controller="MainController">
+    <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -17,13 +18,15 @@
         <div class="container">
           <h1>Fancy search input</h1>
           <h3>with bling-blings, water fountains and everything</h3>
-          <fancysearch></fancysearch>
+
+          <form class="fancy-search"></form>
+
           <div class="clearfix"></div>
           <div class="info">
               Start typing and use omnibox by hitting <span class="key">Tab</span> key.
           </div>
-          <h4 class="todo" ng-class=" todoHidden ? '' : 'show'">TODO:</h4>
-          <ul class="todo" ng-class=" todoHidden ? '' : 'show'">
+          <h4 class="todo">TODO:</h4>
+          <ul class="todo">
             <li>Huge mass of bling-blings</li>
             <li>Arrow up/down navigation between hints</li>
             <li>Prefixes, code minification and concatenation</li>
@@ -32,11 +35,11 @@
         </div>
 
         <nav id="sign-bar">
-              <button id="showToDo" ng-click="todoHidden = false">Show TODO list</button>
-              <a href="https://github.com/zniszcz/fancy-search">Check source on <img ng-src="assets/GitHub-Mark-32px.png"></a>
+              <button id="showToDo">Show TODO list</button>
+              <a href="https://github.com/zniszcz/fancy-search">Check source on <img src="assets/GitHub-Mark-32px.png"></a>
         </nav>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="dist/jquery.fancy-search.js"></script>
         <script src="dist/main.js"></script>
-        <script src="dist/fancy-search.js"></script>
     </body>
 </html>

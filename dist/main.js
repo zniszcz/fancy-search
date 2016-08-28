@@ -1,10 +1,11 @@
-(function () {
+(function ($) {
   "use strict";
 
-   window.app = angular.module('fancySearchSample', []);
+  $('button#showToDo').click( function () {
+    $('.todo').addClass('show');
+  })
+  $('form.fancy-search').fancySearchInit({
+    
+  });
 
-    app.controller('MainController', ['$scope', function($scope) {
-      $scope.todoHidden = true; // TODO: Routing?
-    }]);
-
-})();
+})(jQuery);

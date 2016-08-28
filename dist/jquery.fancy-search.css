@@ -1,0 +1,120 @@
+
+.fancy-search .input-group {
+  position: relative;
+  width: 100%;
+  transition: .5s all ease-in;
+}
+.fancy-search.active .input-group{
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+.fancy-search .input,
+.fancy-search .button {
+  display: inline-block;
+  float: left;
+  box-shadow: none;
+  box-sizing: border-box;
+  height: 46px;
+  z-index: 10;
+  position: relative;
+  border: 0;
+  outline: none;
+}
+.fancy-search .button {
+  width: 80px;
+  background: #2c3e50;
+  color: #fff;
+  font: 800 15px 'Open Sans', Arial, sans-serif;
+  transition: .3s all ease-in;
+}
+.fancy-search .button:hover {
+  background: #34495e;
+  color: #ecf0f1;
+  box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;
+}
+.fancy-search .button:active,
+.fancy-search .button.active {
+  transition: .1s all ease-in;
+  background: #fff;
+  color: #222;
+  /*box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;*/
+}
+.fancy-search .input {
+  width: calc(100% - 80px);
+  background: transparent;
+  color: transparent;
+  padding: 10px 15px;
+  position: relative;
+  font: 800 20px 'Open Sans', Arial, sans-serif;
+}
+.fancy-search .currentHint {
+  padding: 10px 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 46px;
+  box-sizing: border-box;
+  z-index: 9;
+  width: calc(100% - 46px);
+  background: #ecf0f1;
+  font: 300 20px 'Open Sans', Arial, sans-serif;
+}
+.fancy-search .currentHint .hint{
+  color: #bbb;
+}
+.fancy-search .currentHint .query{
+  color: #222;
+  font-weight: 800;
+}
+.fancy-search ul.hints {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  background: #fff;
+  box-sizing: border-box;
+  color: #222;
+  list-style: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: .5s all ease-in;
+  max-height: 0px;
+}
+.fancy-search.active ul.hints {
+  height: auto;
+  max-height: 135px;
+}
+.fancy-search ul.hints li{
+  padding: 10px 15px;
+  transition: .5s all ease-in;
+}
+.fancy-search ul.hints li:first-of-type{
+  padding-top: 15px;
+}
+.fancy-search ul.hints li:last-of-type{
+  padding-bottom: 15px;
+}
+.fancy-search ul.hints li:hover{
+  background: #333;
+  color: #eee;
+}
+
+/* - Need stand-alone declaration - */
+.fancy-search ::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+.fancy-search ::-moz-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+.fancy-search :-ms-input-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
+.fancy-search :-moz-placeholder {
+  font-style: italic;
+  font-weight: 300;
+}
