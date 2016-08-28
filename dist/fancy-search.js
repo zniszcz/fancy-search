@@ -1,14 +1,22 @@
 (function () {
   "use strict";
 
-  app.directive('fancysearch',  function() {
+  app.factory('getFeed', ['$http', function ($http) {
+    return $http.get('https://zniszcz.github.io/fancy-search/feed/hints.json')
+                  .success( function (data) {
+                    return data.hints;
+                  })
+                  .error( function (err) {
+                    return err;
+                  });
+  }])
+  .directive('fancysearch',  ['getFeed', function(getFeed) {
     return {
       restrict: 'E',
-      // scope: {
-      //   search: "="
-      // },
       link: function ($scope, $element) {
-        $scope.hints = ["AAA", "AAB", "AAC", "ABA", "CCC", "CCA", "CCB"]; // TODO: sort data at start;
+        getFeed.success( function (data) {
+          $scope.hints = data.hints;
+        })
         $scope.isActive = false;
         $scope.search = {
           query: "",
@@ -64,6 +72,6 @@
       },
       templateUrl: 'partials/fancy-search.html'
     };
-  });
+  }]);
 
 })();

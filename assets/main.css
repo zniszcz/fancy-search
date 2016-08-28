@@ -47,12 +47,14 @@ nav#sign-bar img{
 h1 {
   margin: 0;
 }
-h1:before {
+h1:before,
+h4:before {
   content: "# ";
   color: rgba(20,20,20,0.7);
   transition: .5s all ease-in;
 }
-h1:hover:before {
+h1:hover:before,
+h4:hover:before {
   color: rgba(255,255,255,1);
 }
 h3 {
@@ -76,6 +78,34 @@ h3 {
   border: 1px solid #aaa;
   box-shadow: 0 0 10px rgba(0,0,0,0.1) inset;
   margin: 0 5px;
+}
+.todo {
+  transition: .3s all;
+  opacity: 0;
+}
+.show {
+  opacity: 1;
+}
+h4.todo {
+  font-weight: 800;
+  font-size: 24px;
+  margin: 2em 0 0;
+}
+ul.todo {
+  margin: .5em 0 0;
+  font-size: 20px;
+  font-weight: 300;
+}
+button#showToDo {
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  border: none;
+  margin: 8px 0 5px;
+  font-size: 10px;
+  text-transform: uppercase;
+  outline: none;
 }
 .fancy-search .input-group {
   position: relative;
