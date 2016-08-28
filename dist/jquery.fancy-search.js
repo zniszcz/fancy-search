@@ -17,7 +17,8 @@
 
         // TODO:
         // 1. Uwzględnić tylko kilka parametrów przekazanych w configu
-        // 2.
+        // 2. Testy
+        // 3. po wpisaniu niepasującej frazy tabulator i tak uzupełnia pierwszym.
 
         $.ajax({
           url: config.hintURL,
@@ -35,7 +36,8 @@
               button = form.find('.button'),
               hintsList = form.find('.hints');
 
-              input.focus(function () {
+              input
+                .focus(function () {
                   form.toggleClass('active');
                 })
                 .blur(function () {
@@ -45,36 +47,36 @@
                   var val = $(this).val(),
                       firstHint = getFirstHint(val),
                       postfix = (firstHint && val) ? firstHint.substr(val.length) : "",
-                      hints = filtreHints(val),
+                      filtredHints = filtreHints(val),
                       bufferHint = "";
 
                   search.query.html(val);
                   search.hint.html(postfix);
 
-                  for(var hint in hints)
-                    bufferHint += "<li>"+hints[hint]+"</li>"
+                  for(var hint in filtredHints)
+                    bufferHint += "<li>"+filtredHints[hint]+"</li>"
 
-                  hintsList.html(bufferHint);
-                  hintsList.find('li').click( function () {
-                      var val = $(this).html();
+                  hintsList
+                    .html(bufferHint)
+                    .find('li').click( function () {
+                        var val = $(this).html();
 
-                      search.query.html(val);
-                      search.hint.html("");
-                      input.val(val);
-                  });
-
+                        search.query.html(val);
+                        search.hint.html("");
+                        input.val(val);
+                    });
 
                   $(this).keydown( function (e) {
                       var code = e.keyCode || e.which,
                           pass = true;
 
-                      if(code == '9') {
+                      if(code == '9' && getFirstHint(val)) {
                         e.preventDefault();
 
                         search.query.html(firstHint);
                         search.hint.html("");
-
                         input.val(firstHint);
+
                         pass = !pass;
                       }
                       return pass;
@@ -86,6 +88,7 @@
           var filtred = $.grep(hints, function (phrase) {
               return phrase.toUpperCase().search(val.toUpperCase()) == 0;
           })
+          console.log(filtred[0]);
           return filtred[0];
         }
 
@@ -96,5 +99,4 @@
           return filtred.slice(config.hintNumbers).sort();
         }
   }
-
 })(jQuery);
