@@ -1,10 +1,4 @@
-<form class="fancy-search" ng-class="isActive ? 'active' : ''">
-  <!-- query: {{ search.query }}
-  <hr>
-  postfix: {{ search.postfix }} -->
-  <!-- <hr> -->
-  <!-- hint: {{ hints | filter: search.query | limitTo: 1}} -->
-  <!-- <br><br><br> -->
+<form class="fancy-search" ng-class="isActive ? 'active' : ''" ng-submit="submit()">
   <div class="input-group">
     <div class="currentHint">
       <span>{{ search.query }}</span>{{ search.postfix }}

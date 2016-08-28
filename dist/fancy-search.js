@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  app.factory('getFeed', ['$http', function ($http) {
+  app.factory('getFeed', ['$http', function ($http) { // TODO: Sorting, const endpoint
     return $http.get('https://zniszcz.github.io/fancy-search/feed/hints.json')
                   .success( function (data) {
                     return data.hints;
@@ -10,7 +10,7 @@
                     return err;
                   });
   }])
-  .directive('fancysearch',  ['getFeed', function(getFeed) {
+  .directive('fancysearch',  ['getFeed', '$window', function(getFeed, $window) {
     return {
       restrict: 'E',
       link: function ($scope, $element) {
@@ -24,6 +24,10 @@
           hint: "",
           activeHint: 0
         };
+
+        $scope.submit = function () {
+            $window.location.href = "https://google.com/search?q="+$scope.search.query+" cat brace";
+        }
 
         $scope.updateQuery = function () {
               for (var i in $scope.hints) {
@@ -67,8 +71,6 @@
             //     $scope.search.activeHint++;
             // }
         });
-
-        // return console.log(scope)
       },
       templateUrl: 'partials/fancy-search.html'
     };

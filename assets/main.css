@@ -139,6 +139,12 @@ button#showToDo {
   color: #ecf0f1;
   box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;
 }
+.fancy-search .button:active,
+.fancy-search .button.active {
+  background: #fff;
+  color: #222;
+  /*box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;*/
+}
 .fancy-search .input {
   width: calc(100% - 80px);
   background: transparent;
