@@ -26,7 +26,7 @@
         };
 
         $scope.submit = function () {
-            $window.location.href = "https://google.com/search?q="+$scope.search.query+" cat brace";
+            $window.location.href = "https://google.com/search?q="+$scope.search.query;
         }
 
         $scope.updateQuery = function () {
