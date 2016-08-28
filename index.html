@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="assets/main.css">
-        <link rel="stylesheet" href="dist/jquery.fancy-search.css">
+        <link rel="stylesheet" href="dist/fancy-search.css">
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -19,7 +19,22 @@
           <h1>Fancy search input</h1>
           <h3>with bling-blings, water fountains and everything</h3>
 
-          <form method="GET" action="http://google.com/search" class="fancy-search"></form>
+          <form method="GET" action="http://google.com/search" class="fancy-search">
+
+              <div class="input-group">
+                <div class="currentHint">
+                  <span class="query"></span>
+                  <span class="hint"></span>
+                </div>
+
+                <input name="q" class="input" type="text" autocomplete="off" placeholder="Search...">
+
+                <input class="button" type="submit" value="Go!">
+
+                <ul class="hints">
+                </ul>
+              </div>
+          </form>
 
           <div class="clearfix"></div>
           <div class="info">
@@ -38,8 +53,8 @@
               <button id="showToDo">Show TODO list</button>
               <a href="https://github.com/zniszcz/fancy-search">Check source on <img src="assets/GitHub-Mark-32px.png"></a>
         </nav>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="dist/jquery.fancy-search.js"></script>
+
+        <!-- <script src="dist/fancy-search.js"></script> -->
         <script src="dist/main.js"></script>
     </body>
 </html>
