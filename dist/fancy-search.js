@@ -34,7 +34,7 @@
                     for (var i in $scope.hints) {
                         if($scope.hints[i].toUpperCase().lastIndexOf($scope.search.query.toUpperCase(), 0) === 0)
                         return $scope.search.hint = $scope.hints[i];
-                } return $scope.search.hint = "";
+                    } return $scope.search.hint = "";
                 };
 
                 $scope.choose = function (value) {
