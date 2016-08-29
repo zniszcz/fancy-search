@@ -45,6 +45,9 @@
   padding: 10px 15px;
   position: relative;
   font: 800 20px 'Open Sans', Arial, sans-serif;
+  height: 46px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .fancy-search .currentHint {
   padding: 10px 15px;
@@ -57,6 +60,8 @@
   width: calc(100% - 46px);
   background: #ecf0f1;
   font: 300 20px 'Open Sans', Arial, sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .fancy-search .currentHint .hint{
   color: #bbb;
