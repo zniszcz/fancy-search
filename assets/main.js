@@ -85,6 +85,7 @@
                         search.query.innerHTML = firstHint;
                         search.hint.innerHTML = "";
                         input.value = firstHint;
+                        hintList.innerHTML = "";
                     }
 
                     pass = !pass;
