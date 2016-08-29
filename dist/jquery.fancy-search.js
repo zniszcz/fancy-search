@@ -80,6 +80,7 @@
                             search.query.html(firstHint);
                             search.hint.html("");
                             input.val(firstHint);
+                            hintsList.html("");
                         }
 
                         pass = !pass;
