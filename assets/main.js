@@ -73,17 +73,20 @@
 
             input.addEventListener('keydown', function (e) {
                 var code = e.keyCode || e.which,
-                    val = input.value,
-                    firstHint = getFirstHint(val),
                     pass = true;
 
-                if(code == 9 && getFirstHint(val)) {
-                    console.log(val);
+                if(code == 9) {
+                    var val = input.value,
+                        firstHint = getFirstHint(val);
 
-                    search.query.innerHTML = val;
-                    search.hint.innerHTML = "";
-                    input.value = val;
                     e.preventDefault();
+
+                    if(firstHint) {
+                        search.query.innerHTML = firstHint;
+                        search.hint.innerHTML = "";
+                        input.value = firstHint;
+                    }
+
                     pass = !pass;
                 }
                 return pass;
