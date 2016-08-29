@@ -65,23 +65,27 @@
                             search.hint.html("");
                             input.val(val);
                         });
+                })
+                .keydown( function (e) {
+                    var code = e.keyCode || e.which,
+                        pass = true;
 
-                    $(this).keydown( function (e) {
-                        var code = e.keyCode || e.which,
-                            pass = true;
+                    if(code == '9') {
+                        var val = input.val(),
+                            firstHint = getFirstHint(val);
 
-                        if(code == '9' && getFirstHint(val)) {
-                            e.preventDefault();
+                        e.preventDefault();
 
+                        if(firstHint) {
                             search.query.html(firstHint);
                             search.hint.html("");
                             input.val(firstHint);
-
-                            pass = !pass;
                         }
 
-                        return pass;
-                    });
+                        pass = !pass;
+                    }
+
+                    return pass;
                 });
             });
 
