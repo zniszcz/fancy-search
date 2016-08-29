@@ -103,7 +103,7 @@
                 var filtred = hints.filter( function (phrase) {
                     return phrase.toUpperCase().search(val.toUpperCase()) >= 0;
                 });
-                return filtred.slice(2).sort();
+                return filtred.slice(0,3).sort();
             }
         }
 })();
