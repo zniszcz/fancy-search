@@ -100,7 +100,8 @@
                 var filtred = $.grep(hints, function (phrase) {
                     return phrase.toUpperCase().search(val.toUpperCase()) >= 0;
                 });
-                return filtred.slice(config.hintNumbers).sort();
+
+                return filtred.slice(0,config.hintNumbers).sort();
             }
     }
 })(jQuery);
