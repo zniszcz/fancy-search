@@ -1,19 +1,19 @@
 (function ($) {
-  "use strict";
+    "use strict";
 
-  $.fn.fancySearchInit = function ( config ) {
-    if(!$('form.fancy-search')) return console.warn("Fancy search not called in HTML");
-    if($.isEmptyObject(config))
-      config = {
-        placeholder: "Search...",
-        submit: "Go!",
-        hintNumbers: 3,
-        hintURL: "https://zniszcz.github.io/fancy-search/feed/hints.json"
-      }
+    $.fn.fancySearchInit = function ( config ) {
+        if(!$('form.fancy-search')) return console.warn("Fancy search not called in HTML");
+        if($.isEmptyObject(config) || !config)
+            config = {
+                placeholder: "Search...",
+                submit: "Go!",
+                hintNumbers: 3,
+                hintURL: "https://zniszcz.github.io/fancy-search/feed/hints.json"
+        }
 
-    var form = $('form.fancy-search'),
-        hints = [],
-        raw = "<div class='input-group'><div class='currentHint'><span class='query'></span><span class='hint'></span></div><input name='q' class='input' type='text' autocomplete='off' placeholder='"+config.placeholder+"'/><input class='button' type='submit' value='"+config.submit+"' /><ul class='hints'> </ul></div>";
+        var form = $('form.fancy-search'),
+            hints = [],
+            raw = "<div class='input-group'><div class='currentHint'><span class='query'></span><span class='hint'></span></div><input name='q' class='input' type='text' autocomplete='off' placeholder='"+config.placeholder+"'/><input class='button' type='submit' value='"+config.submit+"' /><ul class='hints'> </ul></div>";
 
         // TODO:
         // 1. Uwzględnić tylko kilka parametrów przekazanych w configu
@@ -21,82 +21,82 @@
         // 3. po wpisaniu niepasującej frazy tabulator i tak uzupełnia pierwszym.
 
         $.ajax({
-          url: config.hintURL,
-          success: function (data) {
-            hints = data.hints;
-          }
+            url: config.hintURL,
+            success: function (data) {
+                hints = data.hints;
+            }
         });
 
         form.html(raw).ready( function () {
-          var search = {
+            var search = {
                 query: form.find('.query'),
                 hint: form.find('.hint'),
-              },
-              input = form.find('.input'),
-              button = form.find('.button'),
-              hintsList = form.find('.hints');
+            },
+            input = form.find('.input'),
+            button = form.find('.button'),
+            hintsList = form.find('.hints');
 
-              input
+            input
                 .focus(function () {
-                  form.toggleClass('active');
+                    form.toggleClass('active');
                 })
                 .blur(function () {
-                  form.toggleClass('active');
+                    form.toggleClass('active');
                 })
                 .on('input', function () {
-                  var val = $(this).val(),
-                      firstHint = getFirstHint(val),
-                      postfix = (firstHint && val) ? firstHint.substr(val.length) : "",
-                      filtredHints = filtreHints(val),
-                      bufferHint = "";
+                    var val = $(this).val(),
+                        firstHint = getFirstHint(val),
+                        postfix = (firstHint && val) ? firstHint.substr(val.length) : "",
+                        filtredHints = filtreHints(val),
+                        bufferHint = "";
 
-                  search.query.html(val);
-                  search.hint.html(postfix);
+                    search.query.html(val);
+                    search.hint.html(postfix);
 
-                  for(var hint in filtredHints)
-                    bufferHint += "<li>"+filtredHints[hint]+"</li>"
+                    for(var hint in filtredHints)
+                        bufferHint += "<li>"+filtredHints[hint]+"</li>"
 
-                  hintsList
-                    .html(bufferHint)
-                    .find('li').click( function () {
-                        var val = $(this).html();
+                    hintsList
+                        .html(bufferHint)
+                        .find('li').click( function () {
+                            var val = $(this).html();
 
-                        search.query.html(val);
-                        search.hint.html("");
-                        input.val(val);
+                            search.query.html(val);
+                            search.hint.html("");
+                            input.val(val);
+                        });
+
+                    $(this).keydown( function (e) {
+                        var code = e.keyCode || e.which,
+                            pass = true;
+
+                        if(code == '9' && getFirstHint(val)) {
+                            e.preventDefault();
+
+                            search.query.html(firstHint);
+                            search.hint.html("");
+                            input.val(firstHint);
+
+                            pass = !pass;
+                        }
+
+                        return pass;
                     });
-
-                  $(this).keydown( function (e) {
-                      var code = e.keyCode || e.which,
-                          pass = true;
-
-                      if(code == '9' && getFirstHint(val)) {
-                        e.preventDefault();
-
-                        search.query.html(firstHint);
-                        search.hint.html("");
-                        input.val(firstHint);
-
-                        pass = !pass;
-                      }
-                      return pass;
-                  });
                 });
-        });
+            });
 
-        function getFirstHint(val) {
-          var filtred = $.grep(hints, function (phrase) {
-              return phrase.toUpperCase().search(val.toUpperCase()) == 0;
-          })
-          console.log(filtred[0]);
-          return filtred[0];
-        }
+            function getFirstHint(val) {
+                var filtred = $.grep(hints, function (phrase) {
+                    return phrase.toUpperCase().search(val.toUpperCase()) == 0;
+                });
+                return filtred[0];
+            }
 
-        function filtreHints (val) {
-          var filtred = $.grep(hints, function (phrase) {
-              return phrase.toUpperCase().search(val.toUpperCase()) >= 0;
-          })
-          return filtred.slice(config.hintNumbers).sort();
-        }
-  }
+            function filtreHints (val) {
+                var filtred = $.grep(hints, function (phrase) {
+                    return phrase.toUpperCase().search(val.toUpperCase()) >= 0;
+                });
+                return filtred.slice(config.hintNumbers).sort();
+            }
+    }
 })(jQuery);

@@ -1,11 +1,9 @@
 (function ($) {
-  "use strict";
+    "use strict";
 
-  $('button#showToDo').click( function () {
-    $('.todo').addClass('show');
-  })
-  $('form.fancy-search').fancySearchInit({
-    
-  });
+    $('button#showToDo').click( function () {
+        $('.todo').addClass('show');
+    });
+    $('form.fancy-search').fancySearchInit();
 
 })(jQuery);
