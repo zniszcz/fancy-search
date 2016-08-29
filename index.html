@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="assets/main.css">
+        <link rel="stylesheet" href="assets/jquery.fancy-search.css">
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -15,9 +16,38 @@
         <![endif]-->
 
         <div class="container">
-            <h1>Wait a minute!</h1>
-            <h3>There should appear a search boxes examples in a several minutes</h3>
+            <h1>fancy-search</h1>
+            <h3 class="desc">Fancy search input - with omnibox and hints list. If you start typing, omnibox will show most fitting ending of your phrase (which you can choose by hitting Tab key) and three proposals in hints list below. Matches are chosen from JSON file you provide.</h3>
+
+            <form method="GET" action="http://google.com/search" class="fancy-search"></form>
+
+            <div class="clearfix"></div>
+            <div class="info">
+                Start typing and use omnibox by hitting <span class="key">Tab</span> key.
+            </div>
+
+            <h2>why?</h2>
+            <h3>Because I <span class="heart">&#10084;</span> components. And this is good opportunity to improve my codestyle.</h3>
+
+            <h2>Startup</h2>
+            <h3>This project is written in three versions:</h3>
+            <ul>
+                <li><a href="https://github.com/zniszcz/fancy-search/tree/solution-angular">Angular</a> - Angular directive</li>
+                <li><a href="https://github.com/zniszcz/fancy-search/tree/solution-jquery">jQuery</a> - jQuery plugin</li>
+                <li><a href="https://github.com/zniszcz/fancy-search/tree/solution-vanilla">vanilla.js</a> - hardcoded implementation in plain JS</li>
+            </ul>
+
+            <h2>Demo</h2>
+            <h3><a href="https://zniszcz.github.io/fancy-search">home</a> - homepage of demo</h3>
+            <ul>
+                <li><a href="https://zniszcz.github.io/fancy-search/v/angular.html">Angular</a></li>
+                <li><a href="https://zniszcz.github.io/fancy-search/v/jquery.html">jQuery</a></li>
+                <li><a href="https://zniszcz.github.io/fancy-search/vanilla.html">vanilla</a></li>
+            </ul>
         </div>
 
+        <script src="assets/jquery.min.js"></script>
+        <script src="assets/jquery.fancy-search.js"></script>
+        <script src="assets/jquery.main.js"></script>
     </body>
 </html>

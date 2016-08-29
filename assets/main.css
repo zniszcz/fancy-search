@@ -49,18 +49,37 @@ h1 {
     margin: 0;
 }
 h1:before,
+h2:before,
 h4:before {
     content: "# ";
     color: rgba(20,20,20,0.7);
     transition: .5s all ease-in;
 }
 h1:hover:before,
+h2:hover:before,
 h4:hover:before {
     color: rgba(255,255,255,1);
+}
+h2 {
+    margin-top: 2em;
 }
 h3 {
     font-weight: 300;
     margin: 0 0 25px;
+}
+h3.desc {
+    text-align: justify;
+}
+a {
+    color: #fff;
+    transition: .2s all;
+}
+a:active,
+a:hover {
+    color: #eee;
+}
+.heart {
+    color: #e03f3f;
 }
 .info {
     font-weight: 300;
