@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Fancy search input</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="../assets/main.css">
+        <link rel="stylesheet" href="../assets/jquery.fancy-search.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <h1>Fancy search input</h1>
+            <h3>with bling-blings, water fountains and everything</h3>
+
+            <form method="GET" action="http://google.com/search" class="fancy-search">
+                <div class="input-group">
+                    <div class="currentHint">
+                        <span class="query"></span><span class="hint"></span>
+                    </div>
+
+                    <input name="q" class="input" type="text" autocomplete="off" placeholder="Search...">
+                    <input class="button" type="submit" value="Go!">
+
+                    <ul class="hints"></ul>
+                </div>
+            </form>
+
+            <div class="clearfix"></div>
+            <div class="info">
+                Start typing and use omnibox by hitting <span class="key">Tab</span> key.
+            </div>
+        </div>
+
+        <nav id="sign-bar">
+              <a id="showToDo" href="https://zniszcz.github.io/fancy-search">Home</a>
+              <a href="https://github.com/zniszcz/fancy-search">Check source on <img src="../assets/GitHub-Mark-32px.png"></a>
+        </nav>
+
+        <script src="../assets/main.js"></script>
+    </body>
+</html>
