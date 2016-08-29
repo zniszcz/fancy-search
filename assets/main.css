@@ -1,228 +1,226 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,800&subset=latin-ext';
-
-body, html {
-  margin: 0;
-  width: 100%;
-  height: 0;
-  padding: 0;
+body,
+html {
+    margin: 0;
+    width: 100%;
+    height: 0;
+    padding: 0;
 }
 body {
-  background: #2ecc71;
-  color: #fff;
-  font-family: 'Open Sans', Arial, sans-serif;
+    background: #2ecc71;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 .container {
-  width: 100%;
-  max-width: 500px;
-  margin: 10vh auto;
-  box-sizing: border-box;
-  padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 10vh auto;
+    box-sizing: border-box;
+    padding: 20px;
 }
 nav#sign-bar {
-  background: #2c3e50;
-  width: 100%;
-  height: 40px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  color: #eee;
-  font-size: 10px;
-  text-transform: uppercase;
-  box-sizing: border-box;
-  padding: 5px 2em;
+    background: #2c3e50;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #eee;
+    font-size: 10px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    padding: 5px 2em;
 }
-nav#sign-bar a{
-  text-decoration: none;
-  color: #fff;
-  float: right;
+nav#sign-bar a {
+    text-decoration: none;
+    color: #fff;
+    float: right;
 }
-nav#sign-bar img{
-  height: 2em;
-  position: relative;
-  top: 4px;
-  margin: 0 .5em;
+nav#sign-bar img {
+    height: 2em;
+    position: relative;
+    top: 4px;
+    margin: 0 .5em;
 }
 .clearfix {
-  display: table;
-  clear: both;
+    display: table;
+    clear: both;
 }
 h1 {
-  margin: 0;
+    margin: 0;
 }
 h1:before,
 h4:before {
-  content: "# ";
-  color: rgba(20,20,20,0.7);
-  transition: .5s all ease-in;
+    content: "# ";
+    color: rgba(20,20,20,0.7);
+    transition: .5s all ease-in;
 }
 h1:hover:before,
 h4:hover:before {
-  color: rgba(255,255,255,1);
+    color: rgba(255,255,255,1);
 }
 h3 {
-  font-weight: 300;
-  margin: 0 0 25px;
+    font-weight: 300;
+    margin: 0 0 25px;
 }
 .info {
-  font-weight: 300;
-  color: #fff;
-  text-align: center;
-  margin: 2em;
-  display: block;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 2em;
+    display: block;
 }
 .info .key {
-  background: #fff;
-  box-sizing: border-box;
-  padding: 3px 10px;
-  color: #222;
-  font-size: 12px;
-  border-radius: 3px;
-  border: 1px solid #aaa;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1) inset;
-  margin: 0 5px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 3px 10px;
+    color: #222;
+    font-size: 12px;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1) inset;
+    margin: 0 5px;
 }
 .todo {
-  transition: .3s all;
-  opacity: 0;
+    transition: .3s all;
+    opacity: 0;
 }
 .show {
-  opacity: 1;
+    opacity: 1;
 }
 h4.todo {
-  font-weight: 800;
-  font-size: 24px;
-  margin: 2em 0 0;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 2em 0 0;
 }
 ul.todo {
-  margin: .5em 0 0;
-  font-size: 20px;
-  font-weight: 300;
+    margin: .5em 0 0;
+    font-size: 20px;
+    font-weight: 300;
 }
 button#showToDo {
-  background: transparent;
-  color: #fff;
-  box-shadow: none;
-  font-family: 'Open Sans', Arial, sans-serif;
-  border: none;
-  margin: 8px 0 5px;
-  font-size: 10px;
-  text-transform: uppercase;
-  outline: none;
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    border: none;
+    margin: 8px 0 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    outline: none;
 }
 .fancy-search .input-group {
-  position: relative;
-  width: 100%;
-  transition: .5s all ease-in;
+    position: relative;
+    width: 100%;
+    transition: .5s all ease-in;
 }
-.fancy-search.active .input-group{
-  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+.fancy-search.active .input-group {
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 .fancy-search .input,
 .fancy-search .button {
-  display: inline-block;
-  float: left;
-  box-shadow: none;
-  box-sizing: border-box;
-  height: 46px;
-  z-index: 10;
-  position: relative;
-  border: 0;
-  outline: none;
+    display: inline-block;
+    float: left;
+    box-shadow: none;
+    box-sizing: border-box;
+    height: 46px;
+    z-index: 10;
+    position: relative;
+    border: 0;
+    outline: none;
 }
 .fancy-search .button {
-  width: 80px;
-  background: #2c3e50;
-  color: #fff;
-  font: 800 15px 'Open Sans', Arial, sans-serif;
-  transition: .3s all ease-in;
+    width: 80px;
+    background: #2c3e50;
+    color: #fff;
+    font: 800 15px 'Open Sans', Arial, sans-serif;
+    transition: .3s all ease-in;
 }
 .fancy-search .button:hover {
-  background: #34495e;
-  color: #ecf0f1;
-  box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;
+    background: #34495e;
+    color: #ecf0f1;
+    box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;
 }
 .fancy-search .button:active,
 .fancy-search .button.active {
-  transition: .1s all ease-in;
-  background: #fff;
-  color: #222;
-  /*box-shadow: 0 0 100% rgba(255, 255, 255, 0.1) inset;*/
+    transition: .1s all ease-in;
+    background: #fff;
+    color: #222;
 }
 .fancy-search .input {
-  width: calc(100% - 80px);
-  background: transparent;
-  color: transparent;
-  padding: 10px 15px;
-  position: relative;
-  font: 800 20px 'Open Sans', Arial, sans-serif;
+    width: calc(100% - 80px);
+    background: transparent;
+    color: transparent;
+    padding: 10px 15px;
+    position: relative;
+    font: 800 20px 'Open Sans', Arial, sans-serif;
 }
 .fancy-search .currentHint {
-  padding: 10px 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 46px;
-  box-sizing: border-box;
-  z-index: 9;
-  color: #bbb;
-  width: calc(100% - 46px);
-  font: 300 20px 'Open Sans', Arial, sans-serif;
-  background: #ecf0f1;
+    padding: 10px 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 46px;
+    box-sizing: border-box;
+    z-index: 9;
+    color: #bbb;
+    width: calc(100% - 46px);
+    font: 300 20px 'Open Sans', Arial, sans-serif;
+    background: #ecf0f1;
 }
-.fancy-search .currentHint span{
-  color: #222;
-  font-weight: 800;
+.fancy-search .currentHint span {
+    color: #222;
+    font-weight: 800;
 }
 .fancy-search ul.hints {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  display: block;
-  position: absolute;
-  top: 46px;
-  left: 0;
-  background: #fff;
-  box-sizing: border-box;
-  color: #222;
-  list-style: none;
-  z-index: 1;
-  overflow: hidden;
-  transition: .5s all ease-in;
-  max-height: 0px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    background: #fff;
+    box-sizing: border-box;
+    color: #222;
+    list-style: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s all ease-in;
+    max-height: 0px;
 }
 .fancy-search.active ul.hints {
-  height: auto;
-  max-height: 135px;
+    height: auto;
+    max-height: 135px;
 }
-.fancy-search ul.hints li{
-  padding: 10px 15px;
-  transition: .5s all ease-in;
+.fancy-search ul.hints li {
+    padding: 10px 15px;
+    transition: .5s all ease-in;
 }
-.fancy-search ul.hints li:first-of-type{
-  padding-top: 15px;
+.fancy-search ul.hints li:first-of-type {
+    padding-top: 15px;
 }
-.fancy-search ul.hints li:last-of-type{
-  padding-bottom: 15px;
+.fancy-search ul.hints li:last-of-type {
+    padding-bottom: 15px;
 }
-.fancy-search ul.hints li:hover{
-  background: #333;
-  color: #eee;
+.fancy-search ul.hints li:hover {
+    background: #333;
+    color: #eee;
 }
-
 /* - Need stand-alone declaration - */
 .fancy-search ::-webkit-input-placeholder {
-  font-style: italic;
-  font-weight: 300;
+    font-style: italic;
+    font-weight: 300;
 }
 .fancy-search ::-moz-placeholder {
-  font-style: italic;
-  font-weight: 300;
+    font-style: italic;
+    font-weight: 300;
 }
 .fancy-search :-ms-input-placeholder {
-  font-style: italic;
-  font-weight: 300;
+    font-style: italic;
+    font-weight: 300;
 }
 .fancy-search :-moz-placeholder {
-  font-style: italic;
-  font-weight: 300;
+     font-style: italic;
+    font-weight: 300;
 }
