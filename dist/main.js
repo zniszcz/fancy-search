@@ -10,7 +10,7 @@
     request.open('GET', 'https://zniszcz.github.io/fancy-search/feed/hints.json', true);
     request.onload = function() {
       if (request.status >= 200 && request.status < 400) {
-        var data = JSON.parse(request.responseText)
+        var data = JSON.parse(request.responseText);
 
         init(data.hints);
       } else  console.warn("There was a problem with server");
@@ -44,7 +44,8 @@
                 firstHint = getFirstHint(val),
                 postfix = (firstHint && val) ? firstHint.substr(val.length) : "",
                 filtredHints = filtreHints(val),
-                bufferHint = "";
+                bufferHint = "",
+                hintListCollection = [];
 
                 search.query.innerHTML = val;
                 search.hint.innerHTML = postfix;
@@ -54,13 +55,40 @@
                   bufferHint += "<li>"+filtredHints[hint]+"</li>"
 
                 hintList.innerHTML = bufferHint;
+                hintListCollection = hintList.childNodes;
+
+                for(var i = 0; i < hintListCollection.length; i++)
+                  hintListCollection[i].addEventListener('click', function () {
+                    var val = this.innerHTML;
+                      search.query.innerHTML = val;
+                      search.hint.innerHTML = "";
+                      input.value = val;
+                  });
 
                 // TODO:
                 // 1. Validation of inputs
                 // 2. Improove filters
-                // 3. 
+                // 3.
+          });
 
-          })
+          input.addEventListener('keydown', function (e) {
+              var code = e.keyCode || e.which,
+                  val = input.value,
+                  firstHint = getFirstHint(val),
+                  pass = true;
+
+              if(code == 9 && getFirstHint(val)) {
+                console.log(val);
+
+                search.query.innerHTML = val;
+                search.hint.innerHTML = "";
+                input.value = val;
+                e.preventDefault();
+                pass = !pass;
+              }
+
+              return pass;
+          });
 
           function getFirstHint(val) {
             var filtred = hints.filter(function (phrase) {
@@ -79,28 +107,6 @@
 })();
 
 /*
-                .on('input', function () {
-                  var val = $(this).val(),
-                      firstHint = getFirstHint(val),
-                      postfix = (firstHint && val) ? firstHint.substr(val.length) : "",
-                      filtredHints = filtreHints(val),
-                      bufferHint = "";
-
-                  search.query.html(val);
-                  search.hint.html(postfix);
-
-                  for(var hint in filtredHints)
-                    bufferHint += "<li>"+filtredHints[hint]+"</li>"
-
-                  hintsList
-                    .html(bufferHint)
-                    .find('li').click( function () {
-                        var val = $(this).html();
-
-                        search.query.html(val);
-                        search.hint.html("");
-                        input.val(val);
-                    });
 
                   $(this).keydown( function (e) {
                       var code = e.keyCode || e.which,
@@ -119,20 +125,4 @@
                   });
                 });
         });
-
-        function getFirstHint(val) {
-          var filtred = $.grep(hints, function (phrase) {
-              return phrase.toUpperCase().search(val.toUpperCase()) == 0;
-          })
-          return filtred[0];
-        }
-
-        function filtreHints (val) {
-          var filtred = $.grep(hints, function (phrase) {
-              return phrase.toUpperCase().search(val.toUpperCase()) >= 0;
-          })
-          return filtred.slice(config.hintNumbers).sort();
-        }
-  }
-})(jQuery);
 */
