@@ -108,24 +108,3 @@
             }
         }
 })();
-
-/*
-
-                  $(this).keydown( function (e) {
-                      var code = e.keyCode || e.which,
-                          pass = true;
-
-                      if(code == '9' && getFirstHint(val)) {
-                        e.preventDefault();
-
-                        search.query.html(firstHint);
-                        search.hint.html("");
-                        input.val(firstHint);
-
-                        pass = !pass;
-                      }
-                      return pass;
-                  });
-                });
-        });
-*/
